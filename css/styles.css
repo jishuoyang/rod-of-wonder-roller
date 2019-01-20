@@ -1,0 +1,23 @@
+body {
+    font-family: Sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.selection-category {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#results-list {
+    font-family: Garamond;
+    font-size: 1.2rem;
+    margin: 2rem;
+}
+
+.result-line {
+    margin-bottom: 2rem;
+}

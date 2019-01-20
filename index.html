@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8">
+	<title>Rod of Wonder</title>
+	<meta name="description" content="Rod of Wonder">
+	<meta name="author" content="Nurupism">
+	<link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+	<script src="js/scripts.js"></script>
+
+	<div id="selection-section">
+		<div class="selection-category">
+			<label>User Level: </label>
+			<select id="user-level">
+				<option value="4" selected="selected">1-4</option>
+				<option value="8">5-8</option>
+				<option value="12">9-12</option>
+				<option value="16">13-16</option>
+				<option value="20">17-20</option>
+			</select>
+		</div>
+		<div class="selection-category hidden">
+			<label>Result: </label>
+			<select id="result-type">
+				<option value="random" selected="selected">Random</option>
+				<option value="weal">Weal</option>
+				<option value="neutral">Neutral</option>
+				<option value="woe">Woe</option>
+			</select>
+		</div>
+		<div class="selection-category">
+			<input id="activate-button" type="button" value="Activate!">
+		</div>
+	</div>
+	<div id="results-section">
+		<div id="results-list"></div>
+		<input id="clear-button" type="button" value="Clear Results">
+	</div>
+</body>
+</html>
+
