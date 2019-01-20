@@ -324,13 +324,17 @@ const WOE = [
 ];
 
 const DEBUG = window.location.href.includes("file");
+const TEST = false;
+let debugLevel;
+let debugType;
+
 const DISTRIBUTION = {};
 const RAW_DISTRIBUTION = {
-	4: [70, 21, 6, 2, 1],
-	8: [11, 53, 22, 9, 4, 1],
-	12: [3, 7, 50, 23, 10, 5, 2],
-	16: [1, 3, 6, 46, 23, 12, 6, 3],
-	20: [1, 1, 3, 5, 42, 24, 13, 7, 4]
+	4: [74, 17, 6, 2, 1],
+	8: [14, 51, 22, 9, 3, 1],
+	12: [6, 12, 42, 24, 10, 5, 1],
+	16: [2, 5, 11, 39, 26, 11, 5, 1],
+	20: [1, 2, 5, 11, 37, 26, 11, 5, 2]
 };
 
 function generateResult(userLevel) {
@@ -339,16 +343,15 @@ function generateResult(userLevel) {
 
 	if (distributionRow) {
 		let resultsRow;
-		let resultsRowString
 		const resultTypeRoll = Math.random();
-		if (resultTypeRoll < 0.5) {
-			resultsRowString = "Weal";
+		if (resultTypeRoll < 0.60) {
+			DEBUG && (debugType = "WEAL");
 			resultsRow = WEAL;
-		} else if (resultTypeRoll < 0.75) {
-			resultsRowString = "Neutral";
+		} else if (resultTypeRoll < 0.80) {
+			DEBUG && (debugType = "NEUTRAL");
 			resultsRow = NEUTRAL;
 		} else {
-			resultsRowString = "Woe";
+			DEBUG && (debugType = "WOE");
 			resultsRow = WOE;
 		}
 
@@ -356,12 +359,13 @@ function generateResult(userLevel) {
 		const levelRoll = Math.random();
 		for (let i = 0; i < distributionRow.length; i++) {
 			if (levelRoll < distributionRow[i]) {
-				DEBUG && console.log(resultsRowString + " level " + (i+1) + " effect.");
+				DEBUG && (debugLevel = i + 1);
 				levelRow = resultsRow[i];
 				break;
 			}
 		}
 
+		DEBUG && !TEST && console.log(debugType + " level " + debugLevel + " effect.");
 		result = levelRow[Math.floor(Math.random()*levelRow.length)];
 	} else {
 		console.error("Invalid value for user level: " + userLevel);
@@ -449,9 +453,31 @@ function validateResults() {
 	}
 }
 
+// This tests the ratios for expected randomness. Typically not run.
+function ratioTest() {
+	const RUNS = 1000000;
+	const LEVEL = "20";
+
+	const typeResult = {WEAL: 0, NEUTRAL: 0, WOE: 0};
+	const levelResult = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+	for (let i = 0; i < RUNS; i++) {
+		generateResult(LEVEL);
+
+		typeResult[debugType]++;
+		levelResult[debugLevel-1]++;
+	}
+
+	console.log("Result type results: ");
+	console.log(typeResult);
+	console.log("Level results: ");
+	console.log(levelResult);
+}
+
 function renderPage() {
 	getDistributionScale();
 	validateResults();
+	TEST && ratioTest();
 
 	document.getElementById("activate-button").addEventListener("click", activateRoW);
 	document.getElementById("clear-button").addEventListener("click", clearResults);
