@@ -97,7 +97,7 @@ const WEAL = [
 		"A deluge of pies rains down from above the target in a 10 ft. radius. All creatures in the area take 10d10 damage. A successful Dexterity saving throw halves this damage.",
 		"You cast heroes' feast.",
 		"One magic item belonging to you or your allies gains a minor magical power.",
-		"You cast Otto's Irresistible Dance",
+		"You cast Otto's Irresistible Dance.",
 		"You are affected by Tenser's Transformation for the next 24 hours. Your maximum HP increases by 50.",
 		"Your next spell is cast as though using a 9th level spell slot (or otherwise similarly enhanced).",
 	],
@@ -205,7 +205,7 @@ const NEUTRAL = [
 		// Neutral Level 5
 		"You become the opposite sex. The greater restoration spell or similar magic reverses this effect.",
 		"Loud pounding music fills the area emanating from the space around the target. Creatures within 100 feet of the source of the music have disadvantage on Wisdom (Perception) checks that rely on hearing, and creatures within 10 feet of the source are deafened.",
-		"You and the target exchange a random limb, which resizes to fit its new body. If the target isn't a creature one of your limbs becomes the same material as the target while 1/5th of the target becomes made of flesh. The greater restoration spell or similar magic reverses this effect.",
+		"You and the target exchange a random limb, which resizes to fit its new body. If the target isn't a creature, one of your limbs becomes the same material as the target, while 1/5th of the target becomes flesh. A greater restoration spell or similar magic reverses this effect.",
 		"One of your non-magic items becomes sentient, gaining an Intelligence score of 3d6 and random personality traits. There is a 50% chance it can communicate telepathically and a 50% chance it somehow gains the ability to speak.",
 		"For the next day, you are coated in poison which affects any creature that comes into contact with your skin. The poison is crawler mucus (30%), assassin's blood (30%), truth serum (30%), or wyvern poison (10%).",
 	],
